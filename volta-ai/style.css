@@ -1,0 +1,384 @@
+/* ============================================
+   VOLTA.AI — SHARED STYLES
+   ============================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Cursor personalizado — solo CSS, sin JS */
+html, body {
+  cursor: url('cursor.png.png') 16 16, auto;
+}
+
+a, button, input[type="submit"], input[type="button"],
+input[type="reset"], select, label, [role="button"],
+[tabindex], .btn-gradient, .btn-outline {
+  cursor: url('cursor.png.png') 16 16, pointer;
+}
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0A0A0A;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ---- GRADIENT TEXT ---- */
+.gradient-text {
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- BUTTONS ---- */
+.btn-gradient {
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-gradient:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(139, 92, 246, 0.5);
+}
+
+.btn-outline {
+  border: 1.5px solid #8B5CF6;
+  color: #A78BFA;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-outline:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: #A78BFA;
+  transform: translateY(-2px);
+}
+
+/* ---- GLASS CARD ---- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #27272A;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 35px rgba(139, 92, 246, 0.12);
+}
+
+/* ---- ICON BOX ---- */
+.icon-box {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 12px;
+}
+
+/* ---- SECTION LABEL ---- */
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8B5CF6;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+/* ---- SHADOW GLOW ---- */
+.shadow-glow {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.45);
+}
+.shadow-glow:hover {
+  box-shadow: 0 0 60px rgba(139, 92, 246, 0.65) !important;
+}
+
+/* ---- BLOB BACKGROUND ---- */
+.blob-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.blob-1 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.35), transparent 70%);
+  top: -300px;
+  right: -200px;
+  animation: blob-float-1 14s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.25), transparent 70%);
+  bottom: -100px;
+  left: -150px;
+  animation: blob-float-2 17s ease-in-out infinite;
+}
+
+.blob-cta {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 70%);
+  top: 50%;
+  left: 50%;
+  animation: blob-float-center 12s ease-in-out infinite;
+}
+
+@keyframes blob-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(40px, -40px) scale(1.07); }
+  70% { transform: translate(-20px, 25px) scale(0.95); }
+}
+@keyframes blob-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  35% { transform: translate(-35px, -25px) scale(1.05); }
+  65% { transform: translate(30px, 30px) scale(0.93); }
+}
+@keyframes blob-float-center {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  35% { transform: translate(calc(-50% + 35px), calc(-50% - 35px)) scale(1.06); }
+  70% { transform: translate(calc(-50% - 20px), calc(-50% + 20px)) scale(0.94); }
+}
+
+/* ---- SCROLL ANIMATIONS ---- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.scroll-animate.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- HERO FADE-IN ---- */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: hero-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---- CHECKLIST ---- */
+.check-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+/* ---- STAT BADGE (hero inmobiliarias) ---- */
+.stat-badge {
+  background: rgba(139, 92, 246, 0.07);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 14px 20px;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+.stat-badge .stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+.stat-badge .stat-label {
+  font-size: 0.72rem;
+  color: #A1A1AA;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* ---- PROBLEMA STAT ---- */
+.problema-stat {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #27272A;
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.problema-stat:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateY(-3px);
+}
+.problema-stat .stat-number {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* ---- SECURITY ITEM ---- */
+.security-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #27272A;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.3s ease;
+}
+.security-item:hover { border-color: rgba(139, 92, 246, 0.35); }
+.security-badge {
+  font-size: 10px;
+  font-weight: 800;
+  color: #8B5CF6;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 6px;
+  padding: 3px 7px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+/* ---- PRICE CARD ---- */
+.price-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #27272A;
+  border-radius: 24px;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+}
+.price-divider {
+  height: 1px;
+  background: #27272A;
+  margin: 32px 0;
+}
+.price-amount {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+.price-period {
+  font-size: 0.85rem;
+  color: #A1A1AA;
+  margin-left: 6px;
+}
+
+/* ---- HOW-IT-WORKS COLUMN ---- */
+.how-col {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #27272A;
+  border-radius: 16px;
+  padding: 32px;
+  flex: 1;
+  transition: border-color 0.3s ease;
+}
+.how-col:hover { border-color: rgba(139, 92, 246, 0.3); }
+
+/* ---- HOTELERÍA GRADIENT BG ---- */
+.hotel-bg {
+  background:
+    radial-gradient(ellipse 60% 50% at 25% 50%, rgba(139, 92, 246, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 75% 50%, rgba(236, 72, 153, 0.12) 0%, transparent 70%),
+    #0A0A0A;
+  min-height: 100vh;
+}
+
+/* ---- FLOATING WHATSAPP ---- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 999;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55);
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: #27272A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #8B5CF6; }
+
+/* ---- FEATURE LIST ITEMS ---- */
+.feature-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #27272A;
+}
+.feature-point:last-child { border-bottom: none; }
+.feature-dot {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  background: #8B5CF6;
+  border-radius: 50%;
+  margin-top: 8px;
+}
